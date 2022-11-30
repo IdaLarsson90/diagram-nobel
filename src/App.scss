@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Syne Mono', monospace;
+}
+
+body {
+  background-color: hsl(0, 1%, 15%);
+ overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  height: 95vh;
+  
+  // position: relative;
+  
+}
+canvas {
+  // position: relative;
+
+  height: 100%;
+  width: 100%;
+}
+
+.folder {
+  background-color: hsl(29, 60%, 60%);
+  height: 70vh;
+  width: 70vw;
+  display: grid;
+  place-items: center;
+  box-shadow: 20px 20px 10px 5px black;
+  border-radius: 5px;
+  // perspective: 1000px;
+  position: relative;
+}
+
+.folder-content {
+  width: 95%;
+  height: 95%;
+  background-color: white;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transform: rotateX(120deg);
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  backface-visibility: hidden;
+  transform: translateX(2500px) ;
+  z-index: -1;
+  
+  // opacity: 0;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+  }
+}

@@ -1,0 +1,69 @@
+.tabs {
+    width: 69vw;
+    display: flex;
+    z-index: 2;
+
+
+    .tab {
+        flex: 1;
+        padding: 1rem;
+        background-color: red;
+        border-radius: 10px 10px 0 0;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+        text-align: center;
+       
+        z-index: 0;
+    }    
+    .active {
+        z-index: 50;
+        position: relative;
+        box-shadow: none;
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 30px;
+            right:100%;
+            z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 96%);
+            opacity: 0.2
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 30px;
+            left:100%;
+            z-index: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,1) 4%, rgba(0,0,0,0) 50%);;
+            opacity: 0.2
+        }
+    }
+
+ 
+
+    .tab:nth-child(1){
+        background-color: hsl(50, 70%, 80%);
+    }
+    .tab:nth-child(2){
+        background-color: hsl(100, 70%, 80%);
+    }
+    .tab:nth-child(3){
+        background-color: hsl(150, 70%, 80%);
+    }
+    .tab:nth-child(4){
+        background-color: hsl(200, 70%, 80%);
+    }
+    .tab:nth-child(5){
+        background-color: hsl(250, 70%, 80%);
+    }
+    .tab:nth-child(6){
+        background-color: hsl(300, 70%, 80%);
+    }
+    .tab:nth-child(7) {
+        background-color: hsl(29, 60%, 60%);
+    }
+}
