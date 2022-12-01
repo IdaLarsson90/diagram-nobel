@@ -1,4 +1,14 @@
 .winners-by-country {
   background-color: hsl(150, 70%, 80%);
+  // overflow-x: scroll;
+  .chart-wrapper {
+    position: relative;
+    height:3000vh; 
+    width:80vw;
+    // overflow-x: scroll;
+    canvas{
+        overflow-x: scroll;
+    }
+  }
 
 }

@@ -19,51 +19,56 @@ const WinnerByCountry = () => {
     }
   }, [])
 
-  const countryData:any = []
-  let countryCount:any ={}
+  const countryData: any = []
+  let countryCount: any = {}
   data.map(object => {
-    if(object.birth !== undefined){
-        countryData.push( object.birth.place.country.en)
-    } 
+    if (object.birth !== undefined) {
+      countryData.push(object.birth.place.country.en)
+    }
   })
- let countryLabels:string[] | undefined = []
- for (let i = 0; i < countryData.length; i++) {
-  
-  if (!countryLabels.includes(countryData[i])) {
-    countryLabels.push(countryData[i])
+  let countryLabels: string[] | undefined = []
+  for (let i = 0; i < countryData.length; i++) {
+    console.log(countryData[i])
+    if (!countryLabels.includes(countryData[i])) {
+      countryLabels.push(countryData[i])
+    }
+    if (countryCount[countryData[i]] === undefined) {
+      countryCount[countryData[i]] = 1
+    } else {
+      countryCount[countryData[i]]++
+    }
   }
-  if (countryCount[countryData[i]] === undefined) {
-    countryCount[countryData[i]] = 1
-  } else {
-    countryCount[countryData[i]]++
+  let countryDataset: number[] = []
+  let keys = Object.keys(countryCount)
+  let countryCountArr = keys.map(key => ({ key: key, value: countryCount[key] }))
+
+  countryCountArr.forEach(label => {
+    countryDataset.push(label.value)
+  })
+
+  const options = {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+
   }
-  
- }
- let countryDataset: number[] = []
+  const winnersByCountryData = {
+    labels: countryLabels,
+    datasets: [{
+      data: countryDataset
+    }]
 
-//  countryLabels.forEach(label => {
-//    countryDataset.push(countryCount[label])
-//  })
-
-
- let keys = Object.keys(countryCount)
- keys.map(key => ({key: key, value: countryCount[key]}))
-
- console.log(keys)
- console.log(countryCount)
- const winnersByCountryData = {
-  labels: countryLabels,
-  datasets: [{
-    label: 'winners',
-    data: countryDataset
-  }]
-}
+  }
   return (
     <main className='folder winners-by-country'>
       <div className="folder-content">
         <h2>Winners by country</h2>
         <div className="chart-wrapper">
-          <Pie data={winnersByCountryData} />
+          <Pie options={options} data={winnersByCountryData} />
         </div>
       </div>
     </main>
