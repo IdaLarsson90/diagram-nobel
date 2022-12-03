@@ -29,16 +29,15 @@ const WinnerByYear = () => {
   })
 
   let uniqueYears:string[] = []
+  
   winnerData.map((post) => {
     if (!uniqueYears.includes(post.awardYear)) {
       uniqueYears.push(post.awardYear)
     }
   })
-  uniqueYears.sort((a:any, b:any) => b - a)
-
-  console.log(uniqueYears)
+  uniqueYears.sort()
+console.log(uniqueYears)
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value)
     setPickedYear(e.target.value)
   }
   let yearLabels: string[] | undefined = []
@@ -64,7 +63,6 @@ const WinnerByYear = () => {
     }]
   }
   return (
-    <main className='folder winners-by-year'>
       <div className="folder-content">
         <h2>The number of award winners within the various categories, for a selected year</h2>
         <select name="year" value={pickedYear} id="year" onChange={handleChange}>
@@ -77,7 +75,6 @@ const WinnerByYear = () => {
           <Bar data={winnerByYearData} />
         </div>
       </div>
-    </main>
   );
 };
 

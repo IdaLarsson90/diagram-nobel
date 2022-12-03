@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useStore } from "../../store/store"
 
 const AnimationPicker = () => {
-  const animationStyle = useStore((state) => state.animationStyle)
   const setAnimationStyle = useStore((state) => state.setAnimationStyle)
 
   const handleRadioButtons = (e: React.ChangeEvent<HTMLInputElement>) => {

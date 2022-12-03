@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import anime, { AnimeInstance } from 'animejs'
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
-
+import { countType } from '../../models/data';
 import data from '../../data/json_laureates.json'
 import { useStore } from "../../store/store"
 
@@ -14,15 +14,15 @@ const WinnerByGender = () => {
 
   useEffect(() => {
     if (animationStyle === "roll") {
-      let animation: AnimeInstance = anime(rollAnimation)
+      anime(rollAnimation)
     } else {
-      let animation: AnimeInstance = anime(pullAnimation)
+      anime(pullAnimation)
     }
 
   }, [])
-  const genderData: any = data.map(object => object.gender)
+  const genderData: string[] = data.map(object => object.gender ? object.gender : "organisation")
 
-  let genderLabels: string[] | undefined = [], genderCount: any = {}
+  let genderLabels: string[] | undefined = [], genderCount: countType = {}
 
   for (let i: number = 0; i < genderData.length; i++) {
 
@@ -51,14 +51,12 @@ const WinnerByGender = () => {
   }
 
   return (
-    <main className='folder winners-by-gender'>
       <div className="folder-content">
         <h2>The distribution between men and women among prize winners</h2>
         <div>
           <Pie data={winnersByGenderData} />
         </div>
       </div>
-    </main>
   );
 };
 

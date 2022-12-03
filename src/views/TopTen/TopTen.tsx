@@ -2,7 +2,7 @@ import './TopTen.scss';
 import { useEffect } from 'react';
 import anime, { AnimeInstance } from 'animejs'
 import { Pie, Bar, Line } from 'react-chartjs-2';
-
+import { nameAndWinsType } from '../../models/data';
 import { useStore } from "../../store/store"
 import data from '../../data/json_laureates.json'
 
@@ -22,7 +22,7 @@ const TopTen = () => {
 
   }, [])
 
-  let newArr: any = []
+  let newArr: nameAndWinsType[] = []
 
   data.map(item => {
     if (item.fullName !== undefined) {
@@ -32,7 +32,7 @@ const TopTen = () => {
       newArr.push({ name: item.orgName.en, numWins: item.nobelPrizes.length })
     }
   })
-  newArr.sort((a: any, b: any) => b.numWins - a.numWins)
+  newArr.sort((a:nameAndWinsType, b:nameAndWinsType) => b.numWins - a.numWins)
 
   let topTen = newArr.slice(0, 10)
 
@@ -52,15 +52,12 @@ const TopTen = () => {
   }
 
   return (
-
-    <main className='folder top-ten'>
       <div className="folder-content">
         <h2>Top 10 winners</h2>
         <div>
           <Bar data={topTenData} />
         </div>
       </div>
-    </main>
   );
 };
 

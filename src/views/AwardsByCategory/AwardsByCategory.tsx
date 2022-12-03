@@ -41,14 +41,12 @@ const AwardsByCategory = () => {
   }
  
   return (
-    <main className='folder awards-by-category'>
       <div className="folder-content">
         <h2>How many times the Nobel Prize has been awarded, within each category</h2>
         <div> 
           <Bar data={awardsByCategoryData}/>
        </div>
       </div>
-    </main>
   );
 };
 
