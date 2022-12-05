@@ -1,6 +1,6 @@
 import './TopTen.scss';
 import { useEffect } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie, Bar, Line } from 'react-chartjs-2';
 import { nameAndWinsType } from '../../models/data';
 import { useStore } from "../../store/store"
@@ -15,9 +15,9 @@ const TopTen = () => {
 
   useEffect(() => {
     if (animationStyle === "roll") {
-      let animation: AnimeInstance = anime(rollAnimation)
+      anime(rollAnimation)
     } else {
-      let animation: AnimeInstance = anime(pullAnimation)
+      anime(pullAnimation)
     }
 
   }, [])

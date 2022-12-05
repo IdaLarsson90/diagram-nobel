@@ -1,6 +1,6 @@
 import './AwardsByCategory.scss';
 import { useEffect } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie, Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { useStore } from "../../store/store"
@@ -14,9 +14,9 @@ const AwardsByCategory = () => {
 
   useEffect(() => {
     if (animationStyle === "roll") {
-      let animation: AnimeInstance = anime(rollAnimation)
+      anime(rollAnimation)
     } else {
-      let animation: AnimeInstance = anime(pullAnimation)
+      anime(pullAnimation)
     }
 
   }, [])

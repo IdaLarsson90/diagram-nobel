@@ -24,13 +24,10 @@ export type pullAnimationType = {
 }
 
 export type optionsType = {
-    maintainAspectRatio: boolean,
-    responsive: boolean,
-    plugins: {
-      legend: {
-        position: string
-      }
-    }
+    [x:string] : string | boolean | optionProp
+}
+export type optionProp = {
+    [x:string] : string | optionProp
 }
 
 export type nameAndWinsType = {

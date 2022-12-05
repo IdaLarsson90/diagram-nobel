@@ -1,6 +1,6 @@
 import './WinnerByGender.scss';
 import { useEffect } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { countType } from '../../models/data';

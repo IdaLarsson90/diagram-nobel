@@ -9,10 +9,6 @@ const AnimationPicker = () => {
     setAnimationStyle(e.target.value)
 
   }
-  // useEffect(() => {
-  //   console.log(animationStyle);
-
-  // }, [animationStyle])
 
   return (
     <section className='animation-picker'>

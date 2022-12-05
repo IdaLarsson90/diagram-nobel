@@ -1,6 +1,6 @@
 import './WinnerByCategory.scss';
 import { useEffect } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie } from 'react-chartjs-2';
 import data from '../../data/json_award.json'
 import { categoryAndWinsType } from '../../models/data';
@@ -13,16 +13,13 @@ const WinnerByCategory = () => {
   const rollAnimation = useStore((state) => state.rollAnimation)
   const pullAnimation = useStore((state) => state.pullAnimation)
   
-
   useEffect(() => {
     if (animationStyle === "roll") {
-      let animation: AnimeInstance = anime(rollAnimation)
+      anime(rollAnimation)
     } else {
-      let animation: AnimeInstance = anime(pullAnimation)
+      anime(pullAnimation)
     }
-
   }, [])
-
 
   const categoryData: categoryAndWinsType[] = []
 
@@ -32,7 +29,6 @@ const WinnerByCategory = () => {
     } else {
       console.log("no award winner")
     }
-
   })
 
   function sumCategory(data:categoryAndWinsType) {
@@ -46,7 +42,6 @@ const WinnerByCategory = () => {
   }
 
   let categoryCount: categoryAndWinsType[] = categoryData.map((data) => {
-    
     return sumCategory(data)
   })  
 
@@ -57,7 +52,6 @@ const WinnerByCategory = () => {
     if (!categoryLabels.find((e:categoryAndWinsType)=> e.category === data.category)) {
       categoryLabels.push(data)
     }
-    
   })
   const winnersByCategoryData = {
     labels: categoryLabels.map((label)=> label.category),

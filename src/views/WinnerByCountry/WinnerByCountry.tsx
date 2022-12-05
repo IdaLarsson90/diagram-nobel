@@ -1,11 +1,11 @@
 import './WinnerByCountry.scss';
 import { useEffect } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie } from 'react-chartjs-2';
 import data from '../../data/json_laureates.json'
 import { useStore } from "../../store/store"
 
-import { countType } from '../../models/data';
+import { countType, optionsType } from '../../models/data';
 const WinnerByCountry = () => {
   const animationStyle = useStore((state) => state.animationStyle)
 
@@ -49,7 +49,6 @@ const WinnerByCountry = () => {
     }
 
   }
-  console.log(countryCount)
   let countryDataset: number[] = []
   let keys = Object.keys(countryCount)
 
@@ -68,7 +67,7 @@ const WinnerByCountry = () => {
   filteredArr.forEach(label => {
     countryDataset.push(label.value)
   })
-  const options: any = {
+  const options: optionsType = {
     maintainAspectRatio: false,
     responsive: true,
     plugins: {

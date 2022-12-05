@@ -1,6 +1,6 @@
 import './WinnerByYear.scss';
 import { useEffect, useState } from 'react';
-import anime, { AnimeInstance } from 'animejs'
+import anime from 'animejs'
 import { Pie, Bar, Line } from 'react-chartjs-2';
 import data from "../../data/json_award.json"
 
@@ -13,10 +13,10 @@ const WinnerByYear = () => {
   const [pickedYear, setPickedYear] = useState("")
 
   useEffect(() => {
-    if (animationStyle === "roll") {
-      let animation: AnimeInstance = anime(rollAnimation)
+    if (animationStyle === "roll") { 
+      anime(rollAnimation)
     } else {
-      let animation: AnimeInstance = anime(pullAnimation)
+      anime(pullAnimation)
     }
   }, [])
 
@@ -36,7 +36,6 @@ const WinnerByYear = () => {
     }
   })
   uniqueYears.sort()
-console.log(uniqueYears)
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPickedYear(e.target.value)
   }
