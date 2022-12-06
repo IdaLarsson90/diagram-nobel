@@ -86,6 +86,7 @@ const WinnerByCountry = () => {
   return (
       <div className="folder-content">
         <h2>Most winners by country</h2>
+        <p>*Only countries with more than five winners</p>
         <div className="chart-wrapper">
           <Pie options={options} data={winnersByCountryData} />
         </div>
