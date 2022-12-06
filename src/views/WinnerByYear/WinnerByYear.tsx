@@ -36,6 +36,7 @@ const WinnerByYear = () => {
     }
   })
   uniqueYears.sort()
+  
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPickedYear(e.target.value)
   }
